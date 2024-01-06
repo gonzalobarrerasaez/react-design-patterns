@@ -1,13 +1,33 @@
-/* layout pattern */
-// import { SplitScreen } from "./Components/LayoutComponents/SplitScreen";
-// import { LeftHandComponent } from "./Components/LayoutComponents/LeftHandComponent";
-// import { RightHandComponent } from "./Components/LayoutComponents/RightHandComponent";
+import React, { useEffect } from "react";
+/* Layout pattern */
+/* import { SplitScreen } from "./Components/LayoutComponents/SplitScreen";
+ import { LeftHandComponent } from "./Components/LayoutComponents/LeftHandComponent";
+ import { RightHandComponent } from "./Components/LayoutComponents/RightHandComponent";
+ */
 
-/* factory pattern */
-import Factory from "./Components/FactoryPatternsComponents/Factory";
-import cards from "./data/FactoryParttternsMock";
+/* Factory pattern */
+/* import Factory from "./Components/FactoryPatternsComponents/Factory";
+ import cards from "./data/FactoryParttternsMock"; 
+ */
+
+/* Singleton Pattern */
+import Singleton from "./Components/SingletonPattern/Singleton";
 
 function App() {
+  /* Singleton Pattern */
+  useEffect(() => {
+    let foo = Singleton();
+    foo.print(); // Prints 0
+    foo.createInstance();
+    foo.print(); // Prints 1
+    foo.createInstance();
+    foo.print(); // Still prints 1
+    foo.createInstance();
+    foo.print(); // Still 1
+    foo.closeInstance();
+    foo.print(); // Prints 0;
+  }, []);
+  /* End Singleton Pattern */
   return (
     <>
       {/* 
@@ -18,12 +38,15 @@ function App() {
       </SplitScreen> 
       */}
 
-      <h1>Factory Pattern</h1>
+      {/* <h1>Factory Pattern</h1>
       <div>
         {Object.values(cards).map((card, i) => (
           <Factory component={card.component} key={i} />
         ))}
-      </div>
+      </div> */}
+
+      {/* <h1>Singleton Pattern</h1> 
+          Just uncomment useefect */}
     </>
   );
 }
